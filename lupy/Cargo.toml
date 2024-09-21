@@ -1,0 +1,8 @@
+[package]
+name = "lupy"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+full_moon = { git = "https://github.com/Kampfkarren/full-moon.git" }
+rustpython-parser = { git = "https://github.com/RustPython/Parser.git" }

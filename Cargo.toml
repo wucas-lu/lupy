@@ -1,0 +1,5 @@
+[workspace]
+members = ["lupy", "lupy-cli"]
+
+[workspace.dependencies]
+lupy = { path = "lupy" }
