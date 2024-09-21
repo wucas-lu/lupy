@@ -3,12 +3,28 @@
 General purpose Luau to Python 3 transpiler.
 
 Lupy parses Luau abstract syntax trees to emit functionally similar structures
-in Python so that the code stays the same.
+in Python. Enjoy typed Python packages from Luau.
+
+TODO: Install & beta release
+
+## Usage
+
+Python modules can be required with the `@pypkg` scope:
+
+```Luau
+local vex = require("@pypkg/vex")
+local brain = vex:Brain()
+
+local function main()
+  brain.screen:print("Hello from Luau!")
+end
+```
 
 ## But Why‽
 
-VEX Robotics only offers two real languages: C++ and Python. Nobody likes the
-former, while the latter lacks static typings. Lupy tries to bridge this gap
-using Luau, which brings a gradual structured type system to Lua.
+Because of stupid limitations. VEX Robotics only offers C++ and Python. Nobody
+likes learning C++, and Python lacks strong typing. Please do not tell me I have
+to write doc comments just to know what I am using.
 
-I need a pysch eval and I should go back to doing homework.
+Lupy solves this using Luau, which features a gradual structured type system.
+It's more fun than C++ and more caring than Python. That's all I care.
