@@ -1,9 +1,8 @@
 use clap::*;
-use std::path::PathBuf;
+use lupy;
+use std::{fs::File, io::Read, path::PathBuf};
 
-/**
-  General purpose Luau to Python transpiler.
-*/
+/// General purpose Luau to Python transpiler.
 #[derive(Parser, Debug)]
 #[command(version, about = "General purpose Luau to Python transpiler.", long_about = None)]
 struct Args {
@@ -18,5 +17,11 @@ struct Args {
 fn main() {
   let args = Args::parse();
 
-  println!("{:?}", args);
+  let mut file = File::open(args.files).expect("invalid file");
+  let mut contents = String::new();
+  file
+    .read_to_string(&mut contents)
+    .expect("cannot read file");
+
+  println!("{:#?}", lupy::into_python(&contents));
 }
